@@ -4,10 +4,12 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const srcDir = path.resolve(__dirname, "src");
+
 module.exports = {
 	
 	entry: {
-		"app": ['./src/index.js'],
+		"app": [path.resolve(srcDir, 'index.js')],
 	},
 	
 	output: {
@@ -48,7 +50,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			title: 'Webpack Output',
-			template: 'src/index.template.html'
+			template: path.resolve(srcDir, 'index.template.html')
 		}),
 	]
 	
