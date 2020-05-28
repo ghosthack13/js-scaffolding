@@ -4,8 +4,9 @@
 npm init -y
 
 #Create directory structure
-# mkdir -p config dist src/{components, models, pages, routes, servies}
-# touch ./src/index.js
+#mkdir -p config dist src/{components, models, pages, routes, servies}
+#mv index.template.html index.js src/pages/
+#touch ./src/index.js
 
 npm install mysql2
 npm install express
