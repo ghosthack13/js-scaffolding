@@ -6,6 +6,7 @@ const common = require('./webpack.common.js');
 const hotMiddlewareScript = "webpack-hot-middleware/client?reload=true";
 
 let devConfig = {
+	
 	mode: "development",
 	devtool: "inline-source-map",
 	devServer: {
@@ -15,7 +16,20 @@ let devConfig = {
 		// publicPath: "/",
 		// writeToDisk: true,
 	},
+	
 	entry: {},  // Dynamically add entries from common
+	
+	output: {
+		filename: '[name].bundle.js',
+		chunkFilename: '[name].bundle.js',
+	},
+	
+	optimization: {
+		removeAvailableModules: false,
+		removeEmptyChunks: false,
+		splitChunks: false,
+	},
+	
 }
 
 //Add hotMiddlewareScript to each entry point
