@@ -14,8 +14,7 @@ module.exports = {
 	},
 
 	output: {
-		filename: '[name].bundle.js',
-		path: path.resolve(__dirname, 'dist'),
+		path: distDir,
 		publicPath: '/',
 	},
 
@@ -55,6 +54,8 @@ module.exports = {
 			chunks: ['index'],
 			filename: 'index.html'
 		}),
-	]
+	],
+	
+	
 
 };
