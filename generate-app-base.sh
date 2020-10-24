@@ -1,7 +1,7 @@
 
 # sudo chmod u+x generate-app-base.sh
 
-npm init -y
+#npm init -y
 
 #Create directory structure
 #mkdir -p config dist src/{components, models, pages, routes, servies}
@@ -10,9 +10,8 @@ npm init -y
 
 npm install mysql2
 npm install express
-npm install --save-dev nodemon
 npm install --save-dev eslint
-
+npm install --save-dev nodemon
 
 # --------------------------- Install Webpack and Plugins/Loaders ---------------------
 #Install Core Webpack Tools
@@ -36,7 +35,8 @@ npm install --save-dev babel-loader
 
 # --------------------------- Install Babel ---------------------
 #Install Bable and common Presets
-npm install --save-dev @babel/core @babel/cli @babel/preset-env
+npm install --save-dev @babel/core @babel/cli
+npm install --save-dev @babel/preset-env @babel/preset-react
 npm install --save-dev @babel/plugin-proposal-class-properties
 npm install --save core-js
 # npm install @babel/polyfill #-- Deprecated as of Babel 7.4.0 inn favor of core-js
@@ -44,8 +44,7 @@ npm install --save core-js
 
 # --------------------------- Install React ---------------------
 #install React and its Babel Preset
-npm install react react-dom
-npm install react-router-dom
+npm install react react-dom react-router-dom
 npm install --save-dev react-hot-loader
 npm install --save-dev eslint-plugin-react
 npm install --save-dev eslint-plugin-react-hooks
