@@ -1,0 +1,22 @@
+Dockerfile
+.dockerignore
+docker-compose.yaml
+docker-compose.override.yaml
+
+node_modules/
+npm-debug.log
+
+.git
+.gitignore
+.eslintrc.js
+
+##### From .gitignore #####
+dist/
+mysql-data/
+node_modules/
+
+src/components/
+
+config/*
+!config/cookie-opts.json
+notes.txt

@@ -1,0 +1,28 @@
+---
+version: "3.8"
+
+services:
+
+  database:
+    env_file:
+      ./config/.env
+    volumes:
+      - type: bind
+        source: ./mysql-data
+        target: /var/lib/mysql
+    stdin_open: true
+    tty: true
+
+  app:
+    env_file:
+      ./config/.env
+    environment:
+      NODE_ENV: "development"
+    volumes:
+      - type: bind
+        source: .
+        target: /opt/auth
+    stdin_open: true
+    tty: true
+
+...

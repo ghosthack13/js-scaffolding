@@ -1,5 +1,5 @@
 {
-  "ext": "js,json,html",
-  "ignore": ["./src/components", "./src/pages", "./dist/"],
-  "watch" : [".", "./src/routes/", "./src/models/", "./src/services/"]
+  "ext": "js,jsx,json,html",
+  "ignore": ["./dist/", "./src/components", "./src/pages"],
+  "watch" : [".", "./config/", "./src/routes/", "./src/models/", "./src/services/"]
 }

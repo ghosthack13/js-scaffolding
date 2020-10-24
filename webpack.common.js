@@ -1,8 +1,7 @@
-const path = require('path');
+const path = require("path");
 
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const srcDir = path.resolve(__dirname, "src", "pages");
 const distDir = path.resolve(__dirname, "dist");
@@ -10,12 +9,14 @@ const distDir = path.resolve(__dirname, "dist");
 module.exports = {
 
 	entry: {
-		"index": [path.resolve(srcDir, 'index.js')],
+		"index": [path.resolve(srcDir, "index.jsx")],
+		"login": [path.resolve(srcDir, "login.jsx")],
 	},
 
 	output: {
+		filename: "[name].bundle.js",
 		path: distDir,
-		publicPath: '/',
+		publicPath: "/",
 	},
 
 	module: {
@@ -23,39 +24,42 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /(node_modules|bower_components)/,
-				use: [{
-					loader: 'babel-loader',
-					options: { presets: ["@babel/env", "@babel/react"] }
-				}],
+				use: [
+					{ loader: "babel-loader" }
+				],
 			},
 			{
 				test: /\.css$/,
-				use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+				use: [
+					{ loader: "style-loader" },
+					{ loader: "css-loader" }
+				],
 			},
 			{
 				test: /\.(png|jpg|gif)$/,
 				use: [
-					{
-						loader: 'file-loader'
-					},
+					{ loader: "file-loader"	},
 				],
 			}
 		]
 	},
 
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		new CleanWebpackPlugin({
 			cleanStaleWebpackAssets: false
 		}),
 		new HtmlWebpackPlugin({
-			title: 'Title to Change',
-			template: path.resolve(srcDir, 'default.template.html'),
-			chunks: ['index'],
-			filename: 'index.html'
+			title: "Home",
+			template: path.resolve(srcDir, "default.template.html"),
+			chunks: ["index"],
+			filename: "index.html"
 		}),
-	],
-	
-	
+		new HtmlWebpackPlugin({
+			title: "Login",
+			template: path.resolve(srcDir, "default.template.html"),
+			chunks: ["login"],
+			filename: "login.html"
+		}),
+	]
 
 };

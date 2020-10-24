@@ -1,40 +1,37 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const path = require("path");
 
-// hot middleware must be included in each entry array
-const hotMiddlewareScript = "webpack-hot-middleware/client?reload=true";
+const webpack = require("webpack");
+const { merge } = require("webpack-merge");
+// const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+
+const common = require("./webpack.common.js");
 
 let devConfig = {
-	
+
 	mode: "development",
 	devtool: "inline-source-map",
 	devServer: {
-		host: '0.0.0.0',
+		host: "0.0.0.0",
 		port: 8080,
 		contentBase: path.join(__dirname, "dist/"),
-		// publicPath: "/",
+		publicPath: "/",
 		// writeToDisk: true,
+		hot: true,
 	},
-	
-	entry: {},  // Dynamically add entries from common
-	
-	output: {
-		filename: '[name].bundle.js',
-		chunkFilename: '[name].bundle.js',
-	},
-	
-	optimization: {
-		removeAvailableModules: false,
-		removeEmptyChunks: false,
-		splitChunks: false,
-	},
-	
-}
 
-//Add hotMiddlewareScript to each entry point
+	entry: {},  // Dynamically add entries from common
+
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		// new ReactRefreshWebpackPlugin()
+	]
+
+};
+
+//Add hotMiddlewareScript to each entry point (Required for Hot Reloading)
 let entryChunks = Object.keys(common.entry);
 for (const chunk of entryChunks){
+	const hotMiddlewareScript = "webpack-hot-middleware/client?reload=true";
 	devConfig.entry[chunk] = [hotMiddlewareScript];
 }
 

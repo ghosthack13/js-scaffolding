@@ -1,0 +1,30 @@
+---
+version: "3.8"
+
+services:
+
+  database:
+    image: mysql:latest
+    networks:
+      - default
+    restart: always
+    ports:
+      - 33306:3306
+
+  app:
+    build: .
+    image: dwillock/auth-app:0.1.0
+    depends_on:
+      - database
+    networks:
+      - default
+    ports:
+      - 3000:3000
+      - 8080:8080
+
+networks:
+  default:
+    driver: bridge
+    name: auth-net
+
+...
