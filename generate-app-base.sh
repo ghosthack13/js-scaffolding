@@ -50,4 +50,5 @@ npm install --save-dev eslint-plugin-react
 npm install --save-dev eslint-plugin-react-hooks
 npm install --save-dev @babel/preset-react
 npm install --save-dev @babel/plugin-transform-react-jsx-source #Shows line numbers in error boundaries, Disable in Production
+npm install --save-dev eslint-plugin-react eslint-plugin-react-hooks
 
