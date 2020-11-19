@@ -1,12 +1,16 @@
+import React from "react";
+import ReactDom from "react-dom";
 
-function component(){
-	
-	const elem = document.createElement("h1");
-	elem.textContent = "Hello World!";
-	document.body.appendChild(elem);
-	
+if (module.hot) {
+	module.hot.accept(() => {/* Error Handling Code*/});
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
-    component();
-});
+function MainComponent(){
+	return (
+		<React.Fragment>
+			<h1>Hello World!</h1>
+		</React.Fragment>
+	);
+}
+
+ReactDom.render(<MainComponent/>, document.getElementById("root"));
