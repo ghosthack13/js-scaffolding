@@ -10,7 +10,6 @@ module.exports = {
 
 	entry: {
 		"index": [path.resolve(srcDir, "index.jsx")],
-		"login": [path.resolve(srcDir, "login.jsx")],
 	},
 
 	output: {
@@ -53,12 +52,6 @@ module.exports = {
 			template: path.resolve(srcDir, "default.template.html"),
 			chunks: ["index"],
 			filename: "index.html"
-		}),
-		new HtmlWebpackPlugin({
-			title: "Login",
-			template: path.resolve(srcDir, "default.template.html"),
-			chunks: ["login"],
-			filename: "login.html"
 		}),
 	]
 
