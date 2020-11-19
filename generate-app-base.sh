@@ -4,7 +4,7 @@
 #npm init -y
 
 #Create directory structure
-#mkdir -p config dist src/{components, models, pages, routes, servies}
+#mkdir -p config dist src/{components, models, pages, routes, services}
 #mv index.template.html index.js src/pages/
 #touch ./src/index.js
 
@@ -45,10 +45,12 @@ npm install --save core-js
 # --------------------------- Install React ---------------------
 #install React and its Babel Preset
 npm install react react-dom react-router-dom
+npm install --save-dev react-refresh
 npm install --save-dev react-hot-loader
 npm install --save-dev eslint-plugin-react
 npm install --save-dev eslint-plugin-react-hooks
 npm install --save-dev @babel/preset-react
 npm install --save-dev @babel/plugin-transform-react-jsx-source #Shows line numbers in error boundaries, Disable in Production
 npm install --save-dev eslint-plugin-react eslint-plugin-react-hooks
+npm install --save-dev @pmmmwh/react-refresh-webpack-plugin
 
